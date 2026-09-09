@@ -6,9 +6,9 @@ Un mismo software que **crece**: v1 (estructuras simples) → v2 (jerárquicas) 
 
 | | |
 | --- | --- |
-| **Estudiante** | |
-| **Dominio** | |
-| **Repo** | |
+| **Estudiante** | Carlo Gennaro Barroso Benavides |
+| **Dominio** | Gestión de pedidos de restaurante |
+| **Repo** | https://github.com/Carlo-ucb/sis211-proyecto2026 |
 
 ## Mapa v1 (mínimo tres familias distintas)
 
@@ -17,13 +17,13 @@ Familias: arreglo, lista, pila, cola, tabla hash.
 
 | Flujo del dominio | Qué llega / sale / se busca | Familia | La uso porque… |
 | --- | --- | --- | --- |
-| | | | |
-| | | | |
-| | | | |
+| El siguiente pedido a preparar | Atender pedidos en orden estricto de llegada (FIFO) | Cola | Garantiza que el primer pedido recibido sea el primero en cocinarse. |
+| El menú o historial del día | Lista de platillos disponibles e historial ordenado | Lista | Permite almacenar elementos en orden secuencial e iterar sobre ellos. |
+| Buscar un pedido por número | Búsqueda directa del estado de un pedido por ID | Tabla Hash | Permite acceso y búsqueda rápida en tiempo promedio constante $O(1)$. |
 
 Cómo probar un caso límite (vacío, no encontrado o duplicado):
 
-> …
+> Se verificará que al intentar atender un pedido en una cola vacía no se generen errores inesperados, retornando un mensaje adecuado o valor nulo.
 
 ## Carpetas
 
