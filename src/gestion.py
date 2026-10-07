@@ -13,7 +13,7 @@ class GestionPedidos:
         self.menu = Lista()                # familia: lista
         self.indice_pedidos = TablaHash()  # familia: tabla hash
 
-    # --- Menú ---
+    # --- Menu ---
     def agregar_platillo_menu(self, platillo):
         self.menu.agregar(platillo)
 
