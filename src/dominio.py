@@ -14,11 +14,12 @@ class Platillo:
 
 
 class Pedido:
-    def __init__(self, codigo, cliente):
+    def __init__(self, codigo, cliente, prioridad = 0):
         self.codigo = codigo
         self.cliente = cliente
         self.items = []  # lista de Platillo
         self.estado = "pendiente"
+        self.prioridad = prioridad  # v2: menor número = más urgente
 
     def agregar_item(self, platillo):
         self.items.append(platillo)

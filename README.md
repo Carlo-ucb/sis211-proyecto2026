@@ -442,3 +442,54 @@ Además, cada estructura se utiliza de acuerdo con el flujo correspondiente del 
 * ✅ **Tabla Hash** → búsqueda de pedidos por código.
 
 ---
+
+---
+
+# SIS-211 · Proyecto v2 — Gestión de Pedidos de Restaurante
+
+> **Misma software que v1. Branch `v2` desde `v1`. Se agrega una jerarquía: heap.**
+
+---
+
+## Información de v2
+
+| Campo | Información |
+| --- | --- |
+| **Dominio** | Gestión de pedidos de restaurante (el mismo de v1) |
+| **Repositorio** | [GitHub — sis211-proyecto2026](https://github.com/Carlo-ucb/sis211-proyecto2026) |
+| **Branch** | `v2` (creada desde `v1`) |
+| **Entrega Moodle v2** | `2026-11-04 23:59` |
+| **Versión** | `v2` |
+
+---
+
+## Flujo nuevo (v2)
+
+**El pedido que la cocina debe sacar ahora, por urgencia, no por orden de llegada.**
+
+En v1, la cocina atendía con una cola FIFO (`atender_siguiente`). Ese flujo no distingue
+un pedido urgente (por ejemplo, un cliente con reserva o un plato que se enfría) de uno
+común. En v2 se agrega una **cola de prioridad (heap)** para que la cocina pueda extraer
+siempre el pedido más urgente, sin importar cuándo llegó.
+
+---
+
+## Familia agregada: heap
+
+| Flujo nuevo | ¿Qué se ordena? | Familia | La uso porque… |
+| --- | --- | --- | --- |
+| Atender el pedido más urgente | Prioridad (menor número = más urgente) | **Heap** | La cola FIFO de v1 solo respeta el orden de llegada; el heap extrae el mínimo en O(log n) sin recorrer toda la cola. |
+
+> **No se usan árboles ni grafos en v2.** Solo se agrega un heap (cola de prioridad).
+
+---
+
+## Caso límite v2
+
+**Vacío:** si no hay pedidos en la cola de prioridad, `atender_por_urgencia()` retorna `None`
+sin lanzar excepción.
+
+```python
+def test_atender_por_urgencia_vacio_retorna_none():
+    gestion = GestionPedidos()
+    assert gestion.atender_por_urgencia() is None
